@@ -1,0 +1,11 @@
+.Navbar__heading {
+  margin: 0 auto;
+  font-weight: 900;
+  position: relative;
+  margin: 30px;
+  padding: 30px;
+}
+
+.Navbar__mainimage {
+    object-fit: fill;
+}
