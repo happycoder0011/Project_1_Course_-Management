@@ -16,7 +16,6 @@ import {
   Dropdown
 } from 'semantic-ui-react';
 import logo from './../../images/logo.png';
-import home from './../../images/home.png'
 function Navbar() {
     return (
         <div>
@@ -30,12 +29,7 @@ function Navbar() {
             </Menu.Item>    
         </Container>
         </Menu> 
-        <div>
-        <Container fluid>
-        <Image src={home}  className="Navbar__mainimage"/>
-        </Container>
-        </div>
-       
+        
       </div>
     )
 }

@@ -1,13 +1,21 @@
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
 import Navbar from './components/Navbar/Navbar';
-import Formlogin from './components/Forms/Form';
+import Footer from './components/Footer/Footer';
+import Homepage from './pages/Homepage';
+import Profilepage from './pages/Profilepage';
+import Signupoptionspage from './pages/Signupoptionspage';
+import Studentsignup from './components/Forms/studentsignup';
 
 function App() {
   return (
     <div className="App">
       <Navbar/>
-      <Formlogin/>
+      <Homepage/>
+      <Profilepage/>
+      <Signupoptionspage/>
+      <Studentsignup/>
+      <Footer/>
     </div>
   );
 }
