@@ -1,4 +1,12 @@
 .Footer__container{
     height: 100px;
     padding: 20px;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.Footer__div {
+    width: 100%;
 }

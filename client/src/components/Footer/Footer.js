@@ -5,8 +5,8 @@ import logo from "./../../images/logo.png";
 
 function Footer() {
     return (
-        <div>
-            <Container className="Footer__container">
+        <div className="Footer__div" >
+            <Container as="div" className="Footer__container">
                 <Divider/>
                 <Header floated="left">
                     Connect with us

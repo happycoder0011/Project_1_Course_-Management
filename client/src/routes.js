@@ -1,0 +1,7 @@
+export const HOME = '/home'
+export const PROFILE = '/profile'
+export const SIGNUPOPTIONS ='/signupoptions'
+export const STUDENTSIGNUP = '/studentsignup'
+export const STUDENTLECTURERSIGNUP ='/studentlecturersignup'
+export const AVAILABLECOURSE = '/availablecourse'
+export const THANKYOU = '/thankyou'

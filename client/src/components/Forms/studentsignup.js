@@ -1,17 +1,23 @@
 import React from 'react'
-import { Container, Grid, Header , Checkbox,Form} from 'semantic-ui-react'
+import { Container, Grid, Header , Checkbox,Form, Button} from 'semantic-ui-react'
 import './studentsignup.css';
 
 export default function Studentsignup() {
-    const institute = [
+    const major = [
         { key: 'MIS', text: 'MIS', value: 'MIS' },
         { key: 'BA', text: 'Business Administration', value: 'Business Administration' },
-        { key: 'o', text: 'Computer Science', value: 'Computer Science' },
+        { key: 'CS', text: 'Computer Science', value: 'Computer Science' },
+        { key: 'CE', text: 'Civil Engineering', value: 'Civil Engineering' },
+        { key: 'ME', text: 'Mechanical Engineering', value: 'Mechanical Engineering' },
+        { key: 'IT', text: 'Information Technology', value: 'Information Technology' },
+        { key: 'CS', text: 'Chemical Engineering Technology', value: 'Chemical Engineering Technology' },
+        { key: 'CS', text: 'Skill of IT', value: 'Skill of IT' },
+        { key: 'CS', text: 'Skill of precision machinery and control', value: 'Skill of precision machinery and control' },
       ]
-    const major = [
-        { key: 'm', text: 'Male', value: 'male' },
-        { key: 'f', text: 'Female', value: 'female' },
-        { key: 'o', text: 'Other', value: 'other' },
+    const institute = [
+        { key: 'JUC', text: 'JUC', value: 'JUC' },
+        { key: 'JIC', text: 'JIC', value: 'JIC' },
+        { key: 'JTI', text: 'JTI', value: 'JTI' },
       ]
         
     return (
@@ -37,16 +43,17 @@ export default function Studentsignup() {
                              fluid
                              label='Educational Institution'
                              options={institute}
-                             placeholder='Gender'
+                             placeholder='Enter'
                  />
                  <Form.Select
                              fluid
                              label='Major'
                              options={major}
-                             placeholder='Gender'
+                             placeholder='Enter'
                  />
                 
                 </Form.Group> 
+                <Button size="large" primary>Sign Up</Button>
                 </Form>
                 </Grid.Column>
                 <Grid.Column width={7}>
