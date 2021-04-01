@@ -11,6 +11,16 @@ import Availablecoursespage from './pages/Availablecoursespage';
 import Thankyoupage from './pages/Thankyoupage';
 import * as ROUTES from './routes';
 import {BrowserRouter as Router,Route} from 'react-router-dom';
+import Uploadcourseform from './components/Forms/uploadcourseform';
+import Adminpanelpage from './pages/Adminpanelpage';
+import Dropcoursepage from './pages/Dropcoursepage';
+import Approvecoursepage from './pages/Approvecoursepage';
+import Selectlecturerpage from './pages/Selectlecturerpage';
+import Editcoursepage from './pages/Editcoursepage';
+import Addadmin from './components/Forms/Addadminform';
+import Addassistantprofessor from './components/Forms/Addassistantprofessor';
+import Addrecommendationpage from './pages/Addrecommendationpage';
+
 
 function App() {
   return (
@@ -24,7 +34,17 @@ function App() {
       <Route path={ROUTES.STUDENTSIGNUP} component={Studentsignup}/>
       <Route path={ROUTES.STUDENTLECTURERSIGNUP} component={Studentlecturersignup}/>
       <Route path={ROUTES.AVAILABLECOURSE} component={Availablecoursespage}/>
+      <Route path={ROUTES.UPLOADCOURSE} component={Uploadcourseform}/>
       <Route path={ROUTES.THANKYOU} component={Thankyoupage}/>
+      <Route path={ROUTES.ADMINPANEL} component={Adminpanelpage}/>
+      <Route path={ROUTES.DROPCOURSE} component={Dropcoursepage}/>
+      <Route path={ROUTES.APPROVECOURSE} component={Approvecoursepage}/>
+      <Route path={ROUTES.SELECTLECTURER} component={Selectlecturerpage}/>
+      <Route path={ROUTES.EDITCOURSE} component={Editcoursepage}/>
+      <Route path={ROUTES.ADDADMIN} component={Addadmin}/>
+      <Route path={ROUTES.ADDASSISTANT} component={Addassistantprofessor}/>
+      <Route path={ROUTES.ADDRECOMMENDATION} component={Addrecommendationpage}/>
+      
       </div>
       <Footer/>
      
