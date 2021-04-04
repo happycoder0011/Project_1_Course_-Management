@@ -1,8 +1,14 @@
-import React from 'react'
-import { Container, Grid, Header , Checkbox,Form, Button, Segment} from 'semantic-ui-react'
+import React,{useState} from 'react'
+import { Header ,Form, Button} from 'semantic-ui-react'
 import './Formlogin.css';
 
 export default function Addadmin() {
+    const [admindata,setAddadmin] = useState({
+        name:'',
+        email:'',
+        id:'',
+        phonenumber:'',
+    })
 
     return (
         <div className="Formlogin__container">

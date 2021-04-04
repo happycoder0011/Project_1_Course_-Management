@@ -1,22 +1,32 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import "./Navbar.css";
 import {
   Button,
   Container,
-  Divider,
-  Grid,
-  Header,
-  Icon,
   Image,
-  List,
   Menu,
-  Segment,
-  Sidebar,
-  Visibility,
-  Dropdown
-} from 'semantic-ui-react';
+  } 
+from 'semantic-ui-react';
 import logo from './../../images/logo.png';
+import { Link } from 'react-router-dom';
+import * as ROUTES from './../../routes';
+
 function Navbar() {
+   const [logstatus,setLogstatus] = useState(false);
+   useEffect(() => {
+     
+    const user = localStorage.getItem("user")
+    if(user)
+    setLogstatus(true);
+    else
+    setLogstatus(false);
+   
+   }, [])
+  
+
+   const handleclick = () => {
+     localStorage.clear();
+   }
     return (
         <div>
         <Menu  >
@@ -25,8 +35,10 @@ function Navbar() {
         
             <h1 className="Navbar__heading">Registration for additional courses lesson</h1>
             <Menu.Item position="right">
-            <Button content='Sign up' secondary  />
-            </Menu.Item>    
+           <Link to={ROUTES.SIGNUPOPTIONS}> <Button content='Sign up' secondary  /></Link>
+           {logstatus && <Link to={ROUTES.HOME}> <Button content='Sign Out' secondary onClick={handleclick} /></Link>}
+           
+           </Menu.Item>    
         </Container>
         </Menu> 
         
