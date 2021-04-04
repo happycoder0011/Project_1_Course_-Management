@@ -1,4 +1,4 @@
-export const HOME = '/home'
+export const HOME = '/'
 export const PROFILE = '/profile'
 export const SIGNUPOPTIONS ='/signupoptions'
 export const STUDENTSIGNUP = '/studentsignup'
