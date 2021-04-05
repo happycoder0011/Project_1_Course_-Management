@@ -28,7 +28,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <div className="content">
-      <Route path={ROUTES.HOME} component={Homepage}/>
+      <Route exact path={ROUTES.HOME} component={Homepage}/>
       <Route path={ROUTES.PROFILE} component={Profilepage}/>
       <Route path={ROUTES.SIGNUPOPTIONS} component={Signupoptionspage}/>
       <Route path={ROUTES.STUDENTSIGNUP} component={Studentsignup}/>

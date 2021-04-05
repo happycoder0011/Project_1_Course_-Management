@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { useHistory } from 'react-router';
-import { Container, Grid, Header , Checkbox,Form, Button} from 'semantic-ui-react';
+import { Header , Form, Button} from 'semantic-ui-react';
 import './studentsignup.css';
 import db, { register } from '../../firebase';
 import * as ROUTES from './../../routes';
