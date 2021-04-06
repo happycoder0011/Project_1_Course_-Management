@@ -6,7 +6,8 @@ import { useStateValue } from './../../StateProvider';
 import db from './../../firebase';
 
 function Profile() {
-    const [data,setData] = useState({
+
+        const [data,setData] = useState({
           id:'',
           name:"",
           email:'',
@@ -59,11 +60,6 @@ function Profile() {
                           </Grid>
                           </Segment>
                           </Grid.Column>
-
-
-
-
-
 
                     <Grid.Column width={10}>
                     <Button size='massive' disabled >Registered Courses</Button>

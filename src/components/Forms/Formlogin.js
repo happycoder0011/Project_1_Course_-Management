@@ -5,7 +5,7 @@ import {login,checkalongrole } from '../../firebase';
 import { actionTypes } from './../../reducer';
 import {useStateValue} from './../../StateProvider';
 import { useHistory } from "react-router-dom";
-
+import db, { register } from '../../firebase';
 import * as ROUTES from './../../routes'
 const roles = [
   { key: 'Student', value: 'Student', text: 'Student' },
@@ -27,12 +27,20 @@ function Formlogin() {
     try{
        //use role.role
        const user = await login(data);
-       console.log(user.uid);
-       const check = checkalongrole(user.uid,role.role);
-       console.log("this is check"+check)
+      //  console.log(user.uid);
+      //  console.log("this is check"+check)
        localStorage.setItem('uid',user.uid);
        localStorage.setItem('role',role.role);
-       if(role.role=='Admin')
+
+       //to check admin rights
+       const rights = db.collection('Admin').doc(user.uid);
+         rights.get()
+            .then((docsnapshot) => {
+                    if(docsnapshot.exists)
+                      return true
+                    else
+                      return false})
+       if(rights && role.role=='Admin')
        history.push(ROUTES.ADMINPANEL);
        else
        history.push(ROUTES.PROFILE);
@@ -72,7 +80,7 @@ function Formlogin() {
         </Segment>
       </Form>
       <Message>
-        New to us? <a href='/studentsignup'>Sign Up</a>
+        New to us? <a href={ROUTES.SIGNUPOPTIONS}>Sign Up</a>
       </Message>
         </div>
     )

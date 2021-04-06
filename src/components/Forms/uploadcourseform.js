@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import { useHistory } from 'react-router';
 import { Grid, Header , Form, Button} from 'semantic-ui-react'
 import db, { register } from '../../firebase';
-import * as ROUTES from './../../routes';
 
 const major = [
     { key: 'MIS', text: 'MIS', value: 'MIS' },
@@ -42,7 +41,7 @@ export default function Uploadcourseform() {
         e.preventDefault();
       
         try{
-         const dbcall = db.collection('Courses').doc(coursedata.coursecode);
+         const dbcall = db.collection('Courses').doc(coursedata.coursecode)
          dbcall.get()
             .then((docsnapshot) => {
                     if(docsnapshot.exists)

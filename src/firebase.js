@@ -27,10 +27,17 @@ const firebaseConfig = {
                          return resp.user;
   }
 
+  const logout = () => {
+       auth.signOut().then(() => {
+        alert("Logged out successfully!")
+      }).catch((error) => {
+         alert(error.message)
+      });
+  }
   const checkalongrole = async(uid,role) => {
       const query = await db.collection(role).where(firebase.firestore.FieldPath.documentId(), '==', uid).get();
       console.log(query)
       return query;
   }
-  export {auth,register,login,checkalongrole} ;
+  export {auth,register,login,logout} ;
   export default db;
