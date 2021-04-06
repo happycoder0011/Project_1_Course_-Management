@@ -2,41 +2,38 @@ import React,{useState} from 'react'
 import { Button, Card, Image } from 'semantic-ui-react'
 import db from '../../firebase';
 
-function Coursecard({unsubscribe,coursecode,coursename,lecturername,dayoflecture,lecturetime,institute}) {
-  const [col,setCol] = useState();
+function Coursecard({unsubscribe=false,coursecode,coursename,lecturername,dayoflecture,lecturetime,institute}) {
   
-  function handleclick(e,data)
+  let user = localStorage.getItem('uid');
+  function addtostudentcourses(e)
   {
-    let user = localStorage.getItem('uid');
-    
-    var query = db.collection("Student").doc(user).collection('course').doc(coursecode)
-
+    var courseid = e.currentTarget.id;
+    var query = db.collection("Student").doc(user).collection('course').doc(courseid)
     query.get()
          .then((snapshot) => {
            if(snapshot.exists)
-           {
-           alert('You already have subsribed for this course.')
-           }
+           {alert('You already have subsribed for this course.')}
            else
-           {
-            query.set({
+           {query.set({
               coursename:coursename,
               lecturername:lecturername,
               dayoflecture:dayoflecture,
               lecturetime:lecturetime,
               institute:institute
-            })
-          }
+            })}})
+  }
 
-         })
-    
-   
+  function deletefromstudentcourses(e) 
+  {
+   var courseid = e.currentTarget.id;
+   db.collection('Student').doc(user).collection('course').doc(courseid).delete();
+
   }
   
   
   return (
         <div>
-            <Card onClick={handleclick} >
+         <Card >   
             <Card.Content>
         <Card.Header>{coursename}</Card.Header>
         <Card.Meta>{institute}</Card.Meta>
@@ -50,13 +47,22 @@ function Coursecard({unsubscribe,coursecode,coursename,lecturername,dayoflecture
       {
           unsubscribe &&
           <Card.Content extra>
-          <div className='ui two buttons'>
-            <Button color='red'>
+          <div className='ui two buttons' id={coursecode} onClick={deletefromstudentcourses}>
+            <Button   color='red' >
               Unsubscribe
             </Button>
           </div>
-        </Card.Content>    
+        </Card.Content> 
 }
+{ !unsubscribe &&
+        <Card.Content extra>
+        <div className='ui two buttons' id={coursecode} onClick={addtostudentcourses}  >
+          <Button   color='green' >
+            Subscribe
+          </Button>
+        </div>
+      </Card.Content>   
+      }
     </Card>
         </div>
     )

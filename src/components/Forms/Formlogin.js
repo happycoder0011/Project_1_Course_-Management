@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Button, Form, Grid, Header, Image, Message, Segment,Select } from 'semantic-ui-react'
 import './../Forms/Formlogin.css'
-import {login,checkalongrole } from '../../firebase';
+import {login,checkalongrole, logout } from '../../firebase';
 import { actionTypes } from './../../reducer';
 import {useStateValue} from './../../StateProvider';
 import { useHistory } from "react-router-dom";
@@ -21,27 +21,57 @@ function Formlogin() {
     password:''
   })
   const [role,setRole] = useState('');
+  const [check,setCheck] = useState(false);
   let history = useHistory();
   const handleSubmit = async(e) => {
     e.preventDefault();
     try{
        //use role.role
        const user = await login(data);
-      //  console.log(user.uid);
+      //  check if user exists with the same role
+     await  db.collection(role.role)
+      .doc(user.uid)
+      .get()
+      .then((snaps) => {
+                       if(!snaps.exists)
+                       {
+                               alert("User doesn't exists with the same role, check if you chose the correct role.")
+                               logout(false);
+                               localStorage.clear();
+                               setCheck(true)
+                       }
+                  })
+
       //  console.log("this is check"+check)
        localStorage.setItem('uid',user.uid);
        localStorage.setItem('role',role.role);
 
        //to check admin rights
-       const rights = db.collection('Admin').doc(user.uid);
-         rights.get()
+       const adminrights = db.collection('Admin').doc(user.uid);
+         adminrights.get()
             .then((docsnapshot) => {
                     if(docsnapshot.exists)
                       return true
                     else
                       return false})
-       if(rights && role.role=='Admin')
+
+       //to check assistant professor
+       const assistantrights = db.collection('Assistant Professor').doc(user.uid);
+       assistantrights.get()
+          .then((docsnapshot) => {
+                  if(docsnapshot.exists)
+                    return true
+                  else
+                    return false})
+
+       if(check)
+       history.push(ROUTES.HOME)
+       else
+       if(adminrights && role.role=='Admin')
        history.push(ROUTES.ADMINPANEL);
+       else
+       if(assistantrights && role.role=='Assistant Professor')
+       history.push(ROUTES.ADDRECOMMENDATION);
        else
        history.push(ROUTES.PROFILE);
     }

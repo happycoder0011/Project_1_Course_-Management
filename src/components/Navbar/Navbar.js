@@ -14,12 +14,23 @@ import {logout} from './../../firebase';
 
 function Navbar() {
    console.log("its from the navbar"+localStorage.getItem("uid"))
+   const [logstatus,setLogstatus] = useState(false)
    
-   var user = localStorage.getItem("uid");
-
+   useEffect(() => {
+    var user = localStorage.getItem("uid");
+    if(user)
+    {
+      return setLogstatus(true)
+    }
+    else
+    return setLogstatus(false)
+    
+   }, [logstatus])
+   
    const handleclick = () => {
      logout();
      localStorage.clear();
+     setLogstatus(true)
    }
     return (
         <div>
@@ -30,7 +41,7 @@ function Navbar() {
             <h1 className="Navbar__heading">Registration for additional courses lesson</h1>
             <Menu.Item position="right">
            <Link to={ROUTES.SIGNUPOPTIONS}> <Button content='Sign up' secondary  /></Link>
-           { user ? <Link to={ROUTES.HOME}> <Button content='Sign Out' secondary onClick={handleclick} /></Link>:
+           { logstatus ? <Link to={ROUTES.HOME}> <Button content='Sign Out' secondary onClick={handleclick} /></Link>:
            <Link to={ROUTES.HOME}> <Button content='Login' secondary  /></Link>}
            
            </Menu.Item>    

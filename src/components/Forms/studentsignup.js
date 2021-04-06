@@ -42,7 +42,7 @@ export default function Studentsignup() {
            console.log(registerdata.email);
            try{
             const user =  await register(registerdata);
-            console.log(user.uid)
+           // console.log(user.uid)
             
             alert("registered successfully")
             
@@ -95,14 +95,14 @@ export default function Studentsignup() {
                              label='Educational Institution'
                              options={institute}
                              placeholder='Enter'
-                             onChange={(e,data) => setRegisterdata({...registerdata,institute: data.value})}
+                             onChange={(e,data) => setStudentdata({...studentdata,institute: data.value})}
                  />
                  <Form.Select
                              fluid
                              label='Major'
                              options={major}
                              placeholder='Enter'
-                             onChange={(e,data) => setRegisterdata({...registerdata,major: data.value})}
+                             onChange={(e,data) => setStudentdata({...studentdata,major: data.value})}
                  />
                 
                 </Form.Group> 

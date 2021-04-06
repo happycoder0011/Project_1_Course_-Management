@@ -27,13 +27,14 @@ const firebaseConfig = {
                          return resp.user;
   }
 
-  const logout = () => {
-       auth.signOut().then(() => {
+  const logout = (msg = true) => {
+    auth.signOut().then(() => {
+        if(msg)
         alert("Logged out successfully!")
-      }).catch((error) => {
-         alert(error.message)
-      });
-  }
+   }).catch((error) => {
+      alert(error.message)
+   });
+}
   const checkalongrole = async(uid,role) => {
       const query = await db.collection(role).where(firebase.firestore.FieldPath.documentId(), '==', uid).get();
       console.log(query)
