@@ -67,10 +67,10 @@ function Approvecoursepage() {
                    db.collection('Courses').doc(option.coursecode)
                      .update({approved:true})
                      .catch((e) => alert(e))
-                 }
-               })
-               alert("Approved courses successfully!!");
-     }
+                 
+               }
+               alert("Dropped courses successfully!!");
+     })}
 
 
 
