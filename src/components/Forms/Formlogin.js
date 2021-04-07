@@ -1,12 +1,11 @@
 import React,{useState} from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment,Select } from 'semantic-ui-react'
+import { Button, Form, Header, Message, Segment,Select } from 'semantic-ui-react'
 import './../Forms/Formlogin.css'
-import {login,checkalongrole, logout } from '../../firebase';
-import { actionTypes } from './../../reducer';
-import {useStateValue} from './../../StateProvider';
+import {login, logout } from '../../firebase';
 import { useHistory } from "react-router-dom";
-import db, { register } from '../../firebase';
+import db from '../../firebase';
 import * as ROUTES from './../../routes'
+
 const roles = [
   { key: 'Student', value: 'Student', text: 'Student' },
   { key: 'Student Lecturer', value: 'Student Lecturer', text: 'Student Lecturer' },
@@ -21,7 +20,7 @@ function Formlogin() {
     password:''
   })
   const [role,setRole] = useState('');
-  const [check,setCheck] = useState(false);
+  var check = false;
   let history = useHistory();
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -38,7 +37,7 @@ function Formlogin() {
                                alert("User doesn't exists with the same role, check if you chose the correct role.")
                                logout(false);
                                localStorage.clear();
-                               setCheck(true)
+                               check = true
                        }
                   })
 
@@ -46,6 +45,7 @@ function Formlogin() {
        localStorage.setItem('uid',user.uid);
        localStorage.setItem('role',role.role);
 
+     
        //to check admin rights
        const adminrights = db.collection('Admin').doc(user.uid);
          adminrights.get()
@@ -79,7 +79,11 @@ function Formlogin() {
       alert(e);
     }
   }
-
+  // const [{},dispatch] = useStateValue();
+  //     dispatch({
+  //       type: actionTypes.SET_USER,
+  //       user: localStorage.getItem('uid'),
+  //   });
 
   
       return (
@@ -101,7 +105,7 @@ function Formlogin() {
             onChange={(e) => setData({...data,password:e.target.value})}
           />
           
-          <a href='#'>Forgot Password?</a>
+          <a >Forgot Password?</a>
       
           <Button color='teal' fluid size='large'>
             Login

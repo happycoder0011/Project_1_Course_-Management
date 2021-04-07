@@ -1,5 +1,5 @@
-import React,{useState} from 'react'
-import { Button, Card, Image } from 'semantic-ui-react'
+import React from 'react'
+import { Button, Card } from 'semantic-ui-react'
 import db from '../../firebase';
 
 function Coursecard({unsubscribe=false,coursecode,coursename,lecturername,dayoflecture,lecturetime,institute}) {

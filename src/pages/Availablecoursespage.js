@@ -1,7 +1,9 @@
 import React,{useState,useEffect} from 'react'
-import {Header, Grid } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
+import {Header, Grid, Button } from 'semantic-ui-react'
 import Coursecard from '../components/Course/Coursecard'
 import db from './../firebase';
+import * as ROUTES from './../routes'
 
 function Availablecoursespage() {
     const [course,setCourse] = useState({
@@ -50,6 +52,7 @@ function Availablecoursespage() {
     return (
         <div>
             
+            <Link to={ROUTES.PROFILE}><Button size="large"  floated="left" as="div" primary icon="leftarrow">Back</Button></Link>
             <Header as="h1">Available Courses</Header>
             <Grid stackable>
              {rows}

@@ -13,24 +13,17 @@ import * as ROUTES from './../../routes';
 import {logout} from './../../firebase';
 
 function Navbar() {
-   console.log("its from the navbar"+localStorage.getItem("uid"))
-   const [logstatus,setLogstatus] = useState(false)
-   
-   useEffect(() => {
-    var user = localStorage.getItem("uid");
-    if(user)
-    {
-      return setLogstatus(true)
-    }
-    else
-    return setLogstatus(false)
+  const [check,setCheck] = useState(false)
+  useEffect(() => {
     
-   }, [logstatus])
-   
+   if(localStorage.getItem('uid'))
+   setCheck(true)
+    
+  }, [])
    const handleclick = () => {
      logout();
      localStorage.clear();
-     setLogstatus(true)
+     setCheck(false)
    }
     return (
         <div>
@@ -41,9 +34,9 @@ function Navbar() {
             <h1 className="Navbar__heading">Registration for additional courses lesson</h1>
             <Menu.Item position="right">
            <Link to={ROUTES.SIGNUPOPTIONS}> <Button content='Sign up' secondary  /></Link>
-           { logstatus ? <Link to={ROUTES.HOME}> <Button content='Sign Out' secondary onClick={handleclick} /></Link>:
-           <Link to={ROUTES.HOME}> <Button content='Login' secondary  /></Link>}
-           
+           { check && <Link to={ROUTES.HOME}> <Button content='Sign Out' secondary onClick={handleclick} /></Link>}
+           {!check && 
+           <Link to={ROUTES.HOME}> <Button content='Login' secondary  /></Link>}        
            </Menu.Item>    
         </Container>
         </Menu> 

@@ -1,29 +1,12 @@
 import React,{useState} from 'react'
-import { useHistory } from 'react-router';
 import { Grid, Header , Form, Button} from 'semantic-ui-react'
-import db, { register } from '../../firebase';
-
-const major = [
-    { key: 'MIS', text: 'MIS', value: 'MIS' },
-    { key: 'BA', text: 'Business Administration', value: 'Business Administration' },
-    { key: 'CS', text: 'Computer Science', value: 'Computer Science' },
-    { key: 'CE', text: 'Civil Engineering', value: 'Civil Engineering' },
-    { key: 'ME', text: 'Mechanical Engineering', value: 'Mechanical Engineering' },
-    { key: 'IT', text: 'Information Technology', value: 'Information Technology' },
-    { key: 'CET', text: 'Chemical Engineering Technology', value: 'Chemical Engineering Technology' },
-    { key: 'SIT', text: 'Skill of IT', value: 'Skill of IT' },
-    { key: 'spm', text: 'Skill of precision machinery and control', value: 'Skill of precision machinery and control' },
-  ]
-  
-const institute = [
-    { key: 'JUC', text: 'JUC', value: 'JUC' },
-    { key: 'JIC', text: 'JIC', value: 'JIC' },
-    { key: 'JTI', text: 'JTI', value: 'JTI' },
-  ]
-  
+import db from '../../firebase';
+import * as ROUTES from './../../routes'
+import {major,institute} from './../../options'
+import { Link } from 'react-router-dom';
 
 export default function Uploadcourseform() {
-    let history = useHistory();
+    
     let INITIAL_STATE = {
         coursename:'',
         coursecode:'',
@@ -73,6 +56,7 @@ catch(e) {
 }}
     return (
         <div>
+             <Link to={ROUTES.ADMINPANEL}><Button size="large"  floated="left" as="div" primary icon="leftarrow">Back</Button></Link>
             <Header as="h1">Upload Courses</Header>
             <Grid>
                 <Grid.Column width={16} className="Studentsignup__form">

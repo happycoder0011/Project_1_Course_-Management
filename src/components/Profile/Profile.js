@@ -2,7 +2,6 @@ import React,{useState,useEffect} from 'react'
 import { Button,Icon, Grid, Header, Segment } from 'semantic-ui-react'
 import Coursecard from "../Course/Coursecard";
 import "./Profile.css"
-import { useStateValue } from './../../StateProvider';
 import db from './../../firebase';
 import { Link,useHistory } from 'react-router-dom';
 import * as ROUTES from './../../routes'
@@ -31,9 +30,9 @@ var rows = [];
     const uid = localStorage.getItem("uid");
     const role = localStorage.getItem("role");
     console.log(uid,role)
-    useEffect(async() => {
+    useEffect(() => {
        //fetch student subscribed course data
-       await db.collection('Student').doc(uid).collection("course").onSnapshot(snap => (
+        db.collection('Student').doc(uid).collection("course").onSnapshot(snap => (
         setCourse(snap.docs.map(doc => ({
             coursecode:doc.id,
             coursename:doc.data().coursename,

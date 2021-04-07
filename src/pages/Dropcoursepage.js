@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import { Button, Header, Table ,Checkbox} from 'semantic-ui-react'
 import db from './../firebase';
+import { Link } from 'react-router-dom';
+import * as ROUTES from './../routes'
 
 function Dropcoursepage() {
     const [course,setCourse] = useState({
@@ -72,6 +74,8 @@ function Dropcoursepage() {
 
          return (
         <div>
+           <Link to={ROUTES.ADMINPANEL}><Button size="large"  floated="left" as="div" primary icon="leftarrow">Back</Button></Link>
+          
             <Header as="h1">Drop Courses</Header>
             <Table striped celled color="blue">
       <Table.Header>

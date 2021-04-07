@@ -35,10 +35,6 @@ const firebaseConfig = {
       alert(error.message)
    });
 }
-  const checkalongrole = async(uid,role) => {
-      const query = await db.collection(role).where(firebase.firestore.FieldPath.documentId(), '==', uid).get();
-      console.log(query)
-      return query;
-  }
+ 
   export {auth,register,login,logout} ;
   export default db;

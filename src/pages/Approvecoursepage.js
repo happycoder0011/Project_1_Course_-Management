@@ -2,6 +2,8 @@ import React,{useEffect,useState} from 'react'
 import { Button, Header, Table, Checkbox } from 'semantic-ui-react'
 import db from './../firebase';
 
+import { Link } from 'react-router-dom';
+import * as ROUTES from './../routes'
 function Approvecoursepage() {
   const [course,setCourse] = useState({
     coursename:'',
@@ -69,7 +71,7 @@ function Approvecoursepage() {
                      .catch((e) => alert(e))
                  
                }
-               alert("Dropped courses successfully!!");
+               alert("Approved courses successfully!!");
      })}
 
 
@@ -77,6 +79,8 @@ function Approvecoursepage() {
 
     return (
         <div>
+           <Link to={ROUTES.ADMINPANEL}><Button size="large"  floated="left" as="div" primary icon="arrow left">Back</Button></Link>
+          
             <Header as="h1">Approve Courses</Header>
             <Button size="large" floated="right" style={{marginBottom:"20px"}}>Select all</Button>
             <Table striped celled color="blue">

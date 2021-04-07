@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import { Button, Header,Checkbox, Table } from 'semantic-ui-react'
 import db from './../firebase';
+import { Link } from 'react-router-dom';
+import * as ROUTES from './../routes'
 
 function Selectlecturerpage() {
   const [studentlecturerdata,setStudentlecturerdata]  = useState([{
@@ -81,6 +83,8 @@ function handlesubmit(e) {
 }
     return (
         <div>
+           <Link to={ROUTES.ADMINPANEL}><Button size="large"  floated="left" as="div" primary icon="arrow left">Back</Button></Link>
+          
             <Header as="h1">Select Lecturer</Header>
             <Button onClick={handlesubmit} primary size="large" floated="right" style={{marginBottom:"20px"}}>Confirm</Button>
      
