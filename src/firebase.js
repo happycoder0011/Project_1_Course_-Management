@@ -37,5 +37,4 @@ const firebaseConfig = {
 }
  
   export {auth,register,login,logout} ;
-  
   export default db;
