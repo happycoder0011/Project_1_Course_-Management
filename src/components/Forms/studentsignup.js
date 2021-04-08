@@ -4,23 +4,7 @@ import db, { register } from '../../firebase';
 import * as ROUTES from './../../routes';
 import { useHistory } from "react-router-dom";
 import './studentsignup.css';
-
-const major = [
-    { key: 'MIS', text: 'MIS', value: 'MIS' },
-    { key: 'BA', text: 'Business Administration', value: 'Business Administration' },
-    { key: 'CS', text: 'Computer Science', value: 'Computer Science' },
-    { key: 'CE', text: 'Civil Engineering', value: 'Civil Engineering' },
-    { key: 'ME', text: 'Mechanical Engineering', value: 'Mechanical Engineering' },
-    { key: 'IT', text: 'Information Technology', value: 'Information Technology' },
-    { key: 'CET', text: 'Chemical Engineering Technology', value: 'Chemical Engineering Technology' },
-    { key: 'SIT', text: 'Skill of IT', value: 'Skill of IT' },
-    { key: 'spm', text: 'Skill of precision machinery and control', value: 'Skill of precision machinery and control' },
-  ]
-const institute = [
-    { key: 'JUC', text: 'JUC', value: 'JUC' },
-    { key: 'JIC', text: 'JIC', value: 'JIC' },
-    { key: 'JTI', text: 'JTI', value: 'JTI' },
-  ]
+import {major,institute} from "./../../options";
 
 export default function Studentsignup() {
     let history = useHistory();
@@ -64,18 +48,14 @@ export default function Studentsignup() {
                major:studentdata.major,
                institute:studentdata.institute
            })
-//incomplete
-           db.collection("Student").get()
-           .then((docsnapshot) => {
-               console.log(docsnapshot);
-           })
 
        }
     return (
         <div>
             <Header as="h1">Sign Up For Student</Header>
             <Grid>
-                <Grid.Column width={8} className="Studentsignup__form">
+                <Grid.Row>
+                <Grid.Column widescreen={8} mobile={16} tablet={16} className="Studentsignup__form">
                 <Form onSubmit={handleSubmit}>
                 <Form.Group widths='equal'>
                 <Form.Input fluid onChange={(e) => setRegisterdata({...registerdata,email: e.target.value})} placeholder='Email' />
@@ -109,7 +89,8 @@ export default function Studentsignup() {
                 <Button size="large" type='submit' primary>Sign Up</Button>
                 </Form>
                 </Grid.Column>
-                <Grid.Column width={7}>
+                <div>&nbsp;</div>
+                <Grid.Column widescreen={8} tablet={16} mobile={16}>
                 <Header as="h3">Conditions for joining the program</Header>
                 <Container textAlign="left" className="Studentsignup__terms">
                     <ol>
@@ -119,8 +100,9 @@ export default function Studentsignup() {
                         <li>Absence is counted and the student will be banned from the program if the permitted hours are 3 hours only.</li>
                     </ol>
                 </Container>
-                <Checkbox label='Agree' />
+                <Checkbox checked label='Agree' />
                 </Grid.Column>
+                </Grid.Row>
             </Grid>
        
         </div>
