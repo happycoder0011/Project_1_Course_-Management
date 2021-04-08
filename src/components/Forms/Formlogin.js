@@ -63,7 +63,7 @@ function Formlogin() {
                     return true
                   else
                     return false})
-
+                   
        if(check)
        history.push(ROUTES.HOME)
        else
@@ -74,6 +74,8 @@ function Formlogin() {
        history.push(ROUTES.ADDRECOMMENDATION);
        else
        history.push(ROUTES.PROFILE);
+
+       window.location.reload()
     }
     catch (e) {
       alert(e);
