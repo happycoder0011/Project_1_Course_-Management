@@ -2,6 +2,8 @@ import React,{useState,useEffect} from 'react'
 import { Button, Container, Form, Grid, Header, Icon, Table } from 'semantic-ui-react'
 import db from './../firebase';
 import {institute,major} from './../options'
+import * as ROUTES from './../routes';
+import { Link } from 'react-router-dom';
 
 function Editcoursepage() {
   const [editmode,setEditmode] = useState(false);
@@ -110,6 +112,9 @@ function Editcoursepage() {
         <div>
             <Header as="h1">Edit Courses</Header>
             <Grid padded>
+            <Grid.Row>
+            <Link to={ROUTES.ADMINPANEL}><Button size="large"  floated="left" as="div" primary icon="arrow left">Back</Button></Link>
+            </Grid.Row >
             <Grid.Row>
             <Grid.Column floated="left" largeScreen={8} mobile={16} tablet={16}>
             <Table striped celled unstackable color="blue">

@@ -94,7 +94,7 @@ function handlesubmit(e) {
             <Button onClick={handlesubmit} primary size="large" floated="right" style={{marginBottom:"20px"}}>Confirm</Button>
             </Grid.Row>
             <Grid.Row>
-            <Table striped celled color="blue">
+            <Table striped celled unstackable color="blue">
                     <Table.Header>
                       <Table.Row>
                       <Table.HeaderCell>Lecturer Name</Table.HeaderCell>

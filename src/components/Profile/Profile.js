@@ -72,7 +72,7 @@ var rows = [];
         if(course[i].approved!=false)
         {
         rows.push(
-            <Grid.Column largeScreen={5} mobile={16} >
+            <Grid.Column stretched largeScreen={6} mobile={16} tablet={16}>
             <Coursecard   coursename={course[i].coursename}
                           lecturername={course[i].lecturername}
                           lecturetime={course[i].lecturetime}
@@ -111,13 +111,20 @@ var rows = [];
                           </Grid.Column>
 
                     <Grid.Column  largeScreen={10} mobile={16} tablet={16}>
-                    <Button size='massive' disabled >Registered Courses</Button>
-                   <div>&nbsp;</div>
-                   <Link to={ROUTES.AVAILABLECOURSE}> <Button  icon labelPosition="right" primary floated="right">Add courses<Icon name="plus"/></Button></Link>
-                   <div>&nbsp;</div>
+                   
                     <div className="Profile__courses">
                     <Grid stackable>
-                   {rows}
+                        <Grid.Row centered>
+                        <Button size='massive' disabled >Registered Courses</Button>
+                        </Grid.Row>
+                        <Grid.Row>
+                            <Grid.Column floated="right">
+                            <Link to={ROUTES.AVAILABLECOURSE}> <Button  icon labelPosition="right" primary floated="right">Add courses<Icon name="plus"/></Button></Link>
+                            </Grid.Column>
+                        </Grid.Row>
+                        <Grid.Row>
+                        {rows}
+                        </Grid.Row>     
                     </Grid>        
                     </div>
                     </Grid.Column>

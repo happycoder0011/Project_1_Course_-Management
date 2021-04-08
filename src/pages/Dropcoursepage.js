@@ -85,7 +85,7 @@ function Dropcoursepage() {
             
             <Grid.Row>
                     
-                  <Table striped celled color="blue">
+                  <Table striped celled unstackable color="blue">
             <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Course Code</Table.HeaderCell>
