@@ -31,7 +31,6 @@ function Availablecoursespage() {
         )))       
     }, [])
 
-    console.log(course)
     
     for(var i=0;i<course.length;i++)
     {
@@ -48,7 +47,7 @@ function Availablecoursespage() {
             </Grid.Column >)
         }
     }
-
+console.log(rows)
     return (
         <div>
             

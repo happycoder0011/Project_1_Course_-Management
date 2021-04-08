@@ -29,7 +29,7 @@ var rows = [];
   
     const uid = localStorage.getItem("uid");
     const role = localStorage.getItem("role");
-    console.log(uid,role)
+
     useEffect(() => {
        //fetch student subscribed course data
         db.collection('Student').doc(uid).collection("course").onSnapshot(snap => (

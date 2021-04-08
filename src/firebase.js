@@ -1,15 +1,13 @@
 import firebase from 'firebase'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAjJ8HCpeI7YBsqnoZY-psXeEOOM3dcY_k",
-    authDomain: "coursemanagement-dee62.firebaseapp.com",
-    projectId: "coursemanagement-dee62",
-    storageBucket: "coursemanagement-dee62.appspot.com",
-    messagingSenderId: "63666729826",
-    appId: "1:63666729826:web:ff5e0874d63109d45cb23b"
-  };
-
-
+  apiKey: "AIzaSyB6vws6-TNlmyKF4xD6Wv8RQzAGQNWEn7M",
+  authDomain: "course-registration-c40c7.firebaseapp.com",
+  projectId: "course-registration-c40c7",
+  storageBucket: "course-registration-c40c7.appspot.com",
+  messagingSenderId: "40236651448",
+  appId: "1:40236651448:web:c7df5a594efcf3abfdf54d"
+};
   const firebaseApp = firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
   const auth = firebase.auth();

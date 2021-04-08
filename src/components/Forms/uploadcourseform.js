@@ -101,7 +101,7 @@ catch(e) {
                  />
                 
                 </Form.Group> 
-                <Button size="large" primary>Sign Up</Button>
+                <Button size="large" primary>Upload</Button>
                 </Form>
                 </Grid.Column>
                 </Grid.Row>
