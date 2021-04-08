@@ -12,7 +12,7 @@ function Footer() {
                     Connect with us
                 <Header.Subheader icon>
                 <Icon name='envelope' />
-                       alasmdm@ucj.edu.sa
+                       Naif.controller@gmail.com
                 </Header.Subheader>
                 </Header>
                 All rights reserved@2021
