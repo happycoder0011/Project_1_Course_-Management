@@ -87,19 +87,19 @@ var rows = [];
     return (
         <div>
             <Grid divided>
-                          <Grid.Column width={6}>
+                          <Grid.Column largeScreen={6} mobile={16}>
                               
                            <Button size='massive' disabled >Profile Information</Button>
                           <Segment>
                           <Grid>
-                          <Grid.Column width={8} textAlign="left">
+                          <Grid.Column largeScreen={8} mobile={8} textAlign="left">
                           <Header as='h4'>Student ID :</Header>
                           <Header as='h4'>Student Name :</Header>
                           <Header as='h4'>Student Email :</Header>
                           <Header as='h4'>Phone :</Header>
                           <Header as='h4'>Major :</Header>
                           </Grid.Column>
-                          <Grid.Column width={8} textAlign="left">
+                          <Grid.Column largeScreen={8}  mobile={8} textAlign="left">
                           <Header as='h5'>{data.id}</Header>
                           <Header as='h5'>{data.name}</Header>
                           <Header as='h5'>{data.email}</Header>
@@ -110,8 +110,9 @@ var rows = [];
                           </Segment>
                           </Grid.Column>
 
-                    <Grid.Column width={10}>
+                    <Grid.Column  largeScreen={10} mobile={16} tablet={16}>
                     <Button size='massive' disabled >Registered Courses</Button>
+                   <div>&nbsp;</div>
                    <Link to={ROUTES.AVAILABLECOURSE}> <Button  icon labelPosition="right" primary floated="right">Add courses<Icon name="plus"/></Button></Link>
                     <div className="Profile__courses">
                     <Grid stackable>
