@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { Button, Form, Grid, Header, Icon, Table } from 'semantic-ui-react'
+import { Button, Container, Form, Grid, Header, Icon, Table } from 'semantic-ui-react'
 import db from './../firebase';
 import {institute,major} from './../options'
 
@@ -109,9 +109,9 @@ function Editcoursepage() {
     return (
         <div>
             <Header as="h1">Edit Courses</Header>
-            <Grid stretched>
+            <Grid padded>
             <Grid.Row>
-            <Grid.Column floated="left">
+            <Grid.Column floated="left" largeScreen={8} mobile={16} tablet={16}>
             <Table striped celled unstackable color="blue">
                 <Table.Header>
                 <Table.Row>
@@ -132,13 +132,14 @@ function Editcoursepage() {
             </Table.Body>
               </Table>
             </Grid.Column>
-          
-            <Grid.Row>
+        
 
-
+             <div>&nbsp;</div>
             {
               editmode &&
-              <Grid.Column floated="right" stretched>
+              
+              <Grid.Column  largeScreen={6} mobile={16} tablet={8}  >
+                <Header block as="h3"  inverted>Edit Your Course</Header>
                <Form onSubmit={handleSubmit} >
                 <Form.Group widths='equal'>
                 <Form.Input fluid value={editcourse.coursename} placeholder='Course name' onChange={(e) => setEditcourse({...editcourse,coursename: e.target.value})}/>
@@ -176,8 +177,9 @@ function Editcoursepage() {
                 <Button size="large" primary type="submit">Confirm</Button>
                 </Form>
                
-              </Grid.Column>}
-              </Grid.Row>
+              </Grid.Column>
+              }
+            
             
             </Grid.Row>
             
