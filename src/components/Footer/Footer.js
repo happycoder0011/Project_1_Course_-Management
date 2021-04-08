@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container,Divider,Header,Icon,Image } from 'semantic-ui-react'
 import "./Footer.css";
-import logo from "./../../images/logo.png";
+import footerimage from "./../../images/JUClogo.png";
 
 function Footer() {
     return (
@@ -16,11 +16,7 @@ function Footer() {
                 </Header.Subheader>
                 </Header>
                 All rights reserved@2021
-                <Header floated="right">
-                نص بسيط. يمكن تغيير هذا 
-                    <Image src={logo} avatar/>
-                </Header>
-                
+                <Image src={footerimage} floated="right" size="small"/>
 
             </Container>
         </div>

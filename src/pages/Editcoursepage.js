@@ -112,7 +112,7 @@ function Editcoursepage() {
             <Grid stretched>
             <Grid.Row>
             <Grid.Column floated="left">
-            <Table striped celled color="blue">
+            <Table striped celled unstackable color="blue">
                 <Table.Header>
                 <Table.Row>
                 <Table.HeaderCell>Lecturer Name</Table.HeaderCell>
@@ -132,12 +132,14 @@ function Editcoursepage() {
             </Table.Body>
               </Table>
             </Grid.Column>
+          
             <Grid.Row>
+
 
             {
               editmode &&
-              <Grid.Column floated="right" >
-               <Form onSubmit={handleSubmit}>
+              <Grid.Column floated="right" stretched>
+               <Form onSubmit={handleSubmit} >
                 <Form.Group widths='equal'>
                 <Form.Input fluid value={editcourse.coursename} placeholder='Course name' onChange={(e) => setEditcourse({...editcourse,coursename: e.target.value})}/>
                 <Form.Input fluid value={editcourse.lecturerid} placeholder='Lecturer ID' onChange={(e) => setEditcourse({...editcourse,lecturerid: e.target.value})}/>

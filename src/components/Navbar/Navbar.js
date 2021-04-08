@@ -27,9 +27,9 @@ function Navbar() {
    }
     return (
         <div>
-        <Menu stackable >
+        <Menu stackable borderless >
         <Container>
-            <Image src={logo} size="medium" />
+            <Image src={logo} size="medium" centered />
         
             <h1 className="Navbar__heading">Registration for additional courses lesson</h1>
             <Menu.Item position="right">

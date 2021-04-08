@@ -27,9 +27,6 @@ function Adminpanelpage() {
                 </Link>
                 </Grid.Column>
                 <Grid.Column  mobile={16} tablet={8} computer={4}>
-                <Button size="massive" basic>Add assessment</Button>
-                </Grid.Column>
-                <Grid.Column  mobile={16} tablet={8} computer={4}>
                 <Link to={ROUTE.ADDADMIN}>
                 <Button size="massive" basic>Add admin account</Button>
                 </Link>

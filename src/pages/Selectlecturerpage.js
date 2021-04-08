@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { Button, Header,Checkbox, Table } from 'semantic-ui-react'
+import { Button, Header,Checkbox, Table,Grid } from 'semantic-ui-react'
 import db from './../firebase';
 import { Link } from 'react-router-dom';
 import * as ROUTES from './../routes'
@@ -83,14 +83,20 @@ function handlesubmit(e) {
 }
     return (
         <div>
+          <Grid>
+            <Grid.Row>
            <Link to={ROUTES.ADMINPANEL}><Button size="large"  floated="left" as="div" primary icon="arrow left">Back</Button></Link>
-          
+           </Grid.Row>
+           <Grid.Row centered>
             <Header as="h1">Select Lecturer</Header>
+            </Grid.Row>
+            <Grid.Row >
             <Button onClick={handlesubmit} primary size="large" floated="right" style={{marginBottom:"20px"}}>Confirm</Button>
-     
+            </Grid.Row>
+            <Grid.Row>
             <Table striped celled color="blue">
-    <Table.Header>
-    <Table.Row>
+                    <Table.Header>
+                      <Table.Row>
                       <Table.HeaderCell>Lecturer Name</Table.HeaderCell>
                       <Table.HeaderCell>ID</Table.HeaderCell>
                       <Table.HeaderCell>E-mail</Table.HeaderCell>
@@ -106,7 +112,9 @@ function handlesubmit(e) {
                       <Table.Body>
                       {rows}
                       </Table.Body>      
-                      </Table> 
+                      </Table>
+                      </Grid.Row> 
+                      </Grid>
         </div>
     )
 }

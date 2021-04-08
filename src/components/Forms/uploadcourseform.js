@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Grid, Header , Form, Button} from 'semantic-ui-react'
+import { Grid, Header , Form, Button, Divider} from 'semantic-ui-react'
 import db from '../../firebase';
 import * as ROUTES from './../../routes'
 import {major,institute} from './../../options'
@@ -56,9 +56,15 @@ catch(e) {
 }}
     return (
         <div>
-             <Link to={ROUTES.ADMINPANEL}><Button size="large"  floated="left" as="div" primary icon="leftarrow">Back</Button></Link>
-            <Header as="h1">Upload Courses</Header>
-            <Grid>
+             <Grid>
+               <Grid.Row>
+               <Link to={ROUTES.ADMINPANEL}><Button as="div" size="large"  floated="left" as="div" primary icon="leftarrow">Back</Button></Link>
+               </Grid.Row>
+                <Grid.Row centered>
+                <Header as="h1" textAlign="center" >Upload Courses</Header>
+                <Divider/>
+                </Grid.Row>
+                <Grid.Row>
                 <Grid.Column width={16} className="Studentsignup__form">
                 <Form onSubmit={handleSubmit}>
                 <Form.Group widths='equal'>
@@ -98,6 +104,7 @@ catch(e) {
                 <Button size="large" primary>Sign Up</Button>
                 </Form>
                 </Grid.Column>
+                </Grid.Row>
             </Grid>
        
         </div>

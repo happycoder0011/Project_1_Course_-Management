@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import { Button, Header, Table, Checkbox } from 'semantic-ui-react'
+import { Button, Header, Table, Checkbox,Grid } from 'semantic-ui-react'
 import db from './../firebase';
 
 import { Link } from 'react-router-dom';
@@ -79,32 +79,40 @@ function Approvecoursepage() {
 
     return (
         <div>
-           <Link to={ROUTES.ADMINPANEL}><Button size="large"  floated="left" as="div" primary icon="arrow left">Back</Button></Link>
-          
+          <Grid>
+            <Grid.Row>
+            <Link to={ROUTES.ADMINPANEL}><Button size="large"  floated="left" as="div" primary icon="arrow left">Back</Button></Link>
+            </Grid.Row >
+            <Grid.Row centered> 
             <Header as="h1">Approve Courses</Header>
-            <Button size="large" floated="right" style={{marginBottom:"20px"}}>Select all</Button>
-            <Table striped celled color="blue">
-            <Table.Header>
-      <Table.Row>
-        <Table.HeaderCell>Course Code</Table.HeaderCell>
-        <Table.HeaderCell>Course Name</Table.HeaderCell>
-        <Table.HeaderCell>E-mail</Table.HeaderCell>
-        <Table.HeaderCell>Day of Lecture</Table.HeaderCell>
-        <Table.HeaderCell>Institute</Table.HeaderCell>
-        <Table.HeaderCell>Lecturer ID</Table.HeaderCell>
-        <Table.HeaderCell>Lecturer Name</Table.HeaderCell>
-        <Table.HeaderCell>Lecture Time</Table.HeaderCell>
-        <Table.HeaderCell>Major</Table.HeaderCell>
-        <Table.HeaderCell>Approve</Table.HeaderCell>
-      </Table.Row>
-    </Table.Header>
+            </Grid.Row> 
+            <Grid.Row>
+                  <Button size="large" floated="right" style={{marginBottom:"20px"}}>Select all</Button>
+                  <Table striped celled color="blue">
+                  <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Course Code</Table.HeaderCell>
+              <Table.HeaderCell>Course Name</Table.HeaderCell>
+              <Table.HeaderCell>E-mail</Table.HeaderCell>
+              <Table.HeaderCell>Day of Lecture</Table.HeaderCell>
+              <Table.HeaderCell>Institute</Table.HeaderCell>
+              <Table.HeaderCell>Lecturer ID</Table.HeaderCell>
+              <Table.HeaderCell>Lecturer Name</Table.HeaderCell>
+              <Table.HeaderCell>Lecture Time</Table.HeaderCell>
+              <Table.HeaderCell>Major</Table.HeaderCell>
+              <Table.HeaderCell>Approve</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
 
-    <Table.Body>
-    {rows}
-      </Table.Body>
-      </Table> 
-      <Button primary size="large" onClick={handlesubmit}>Confirm</Button>
-        </div>
+          <Table.Body>
+          {rows}
+            </Table.Body>
+            </Table> 
+            <Button primary size="large" onClick={handlesubmit}>Confirm</Button>
+              
+            </Grid.Row>
+          </Grid>
+            </div>
     )
 }
 
