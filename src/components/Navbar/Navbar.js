@@ -27,14 +27,16 @@ function Navbar() {
    }
     return (
         <div>
-        <Menu  >
+        <Menu stackable >
         <Container>
-            <Image src={logo}  />
+            <Image src={logo} size="medium" />
         
             <h1 className="Navbar__heading">Registration for additional courses lesson</h1>
             <Menu.Item position="right">
            <Link to={ROUTES.SIGNUPOPTIONS}> <Button content='Sign up' secondary  /></Link>
            { check && <Link to={ROUTES.HOME}> <Button content='Sign Out' secondary onClick={handleclick} /></Link>}
+          </Menu.Item>
+          <Menu.Item>
            {!check && 
            <Link to={ROUTES.HOME}> <Button content='Login' secondary  /></Link>}        
            </Menu.Item>    

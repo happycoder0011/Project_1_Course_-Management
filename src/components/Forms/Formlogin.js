@@ -92,7 +92,7 @@ function Formlogin() {
         <Segment stacked>
           <div className="Formlogin__usertype">
           <Header as='h3' textAlign='center'  content='User Type' />
-          <Select placeholder='Select your country' options={roles}   onChange={(e,data) => setRole({...role,role:data.value})}/>
+          <Select placeholder='Select your Role' options={roles}   onChange={(e,data) => setRole({...role,role:data.value})}/>
           </div>
           <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' 
           onChange={(e) => setData({...data,email:e.target.value})}/>
