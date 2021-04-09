@@ -33,7 +33,7 @@ function Navbar() {
         
             <h1 className="Navbar__heading">Registration for additional courses lesson</h1>
             <Menu.Item position="right">
-           <Link to={ROUTES.SIGNUPOPTIONS}> <Button content='Sign up' secondary  /></Link>
+           {!check && <Link to={ROUTES.SIGNUPOPTIONS}> <Button content='Sign up' secondary  /></Link>}
            { check && <Link to={ROUTES.HOME}> <Button content='Sign Out' secondary onClick={handleclick} /></Link>}
           </Menu.Item>
           <Menu.Item>
