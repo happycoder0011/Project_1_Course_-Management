@@ -85,7 +85,10 @@ function Approvecoursepage() {
             <Header as="h1">Approve Courses</Header>
             </Grid.Row> 
             <Grid.Row>
-                  <Button size="large" floated="right" style={{marginBottom:"20px"}}>Select all</Button>
+            <Link to={ROUTES.ADMINPANEL}><Button size="large"  floated="left" as="div" primary icon="arrow left">Back</Button></Link>
+            {/* <Button size="large" floated="right" style={{marginBottom:"20px"}}>Select all</Button> */}
+            </Grid.Row >
+            <Grid.Row>
                   <Table unstackable striped celled color="blue">
                   <Table.Header>
             <Table.Row>

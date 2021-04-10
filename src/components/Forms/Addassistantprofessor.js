@@ -1,25 +1,12 @@
 import React,{useState} from 'react'
 import { useHistory } from 'react-router';
-import { Header , Form, Button} from 'semantic-ui-react';
+import { Header , Form, Button, Grid} from 'semantic-ui-react';
 import './studentsignup.css';
 import db, { register } from '../../firebase';
 import * as ROUTES from './../../routes';
-const major = [
-  { key: 'MIS', text: 'MIS', value: 'MIS' },
-  { key: 'BA', text: 'Business Administration', value: 'Business Administration' },
-  { key: 'CS', text: 'Computer Science', value: 'Computer Science' },
-  { key: 'CE', text: 'Civil Engineering', value: 'Civil Engineering' },
-  { key: 'ME', text: 'Mechanical Engineering', value: 'Mechanical Engineering' },
-  { key: 'IT', text: 'Information Technology', value: 'Information Technology' },
-  { key: 'CET', text: 'Chemical Engineering Technology', value: 'Chemical Engineering Technology' },
-  { key: 'SIT', text: 'Skill of IT', value: 'Skill of IT' },
-  { key: 'spm', text: 'Skill of precision machinery and control', value: 'Skill of precision machinery and control' },
-]
-  const institute = [
-      { key: 'JUC', text: 'JUC', value: 'JUC' },
-      { key: 'JIC', text: 'JIC', value: 'JIC' },
-      { key: 'JTI', text: 'JTI', value: 'JTI' },
-    ]
+import {major,institute} from './../../options';
+import { Link } from 'react-router-dom';
+
 export default function Addassistantprofessor() {
   let history = useHistory();
   const [assistantdata,setAssistantdata] = useState({
@@ -58,8 +45,16 @@ export default function Addassistantprofessor() {
         }}
     return (
         <div>
+          <Grid>
+            <Grid.Row>
+            <Link to={ROUTES.ADMINPANEL}><Button size="large"  floated="left" as="div" primary icon="arrow left">Back</Button></Link>
+            </Grid.Row>
+            <Grid.Row centered>
             <Header as="h1">Add Assistant Professor Account</Header>
-            <Form onSubmit={handleSubmit} style={{maxWidth:"600px",display:"relative",margin:"0 auto"}}>
+            </Grid.Row>
+            <Grid.Row >  
+              <Grid.Column>
+              <Form onSubmit={handleSubmit} style={{maxWidth:"600px",display:"relative",margin:"0 auto"}}>
                 <Form.Group widths='equal'>
                 <Form.Input fluid  placeholder='Assistant Professor name' onChange={(e) => setAssistantdata({...assistantdata,name: e.target.value})}/>
                 <Form.Input fluid  placeholder='E-mail' onChange={(e) => setAssistantdata({...assistantdata,email: e.target.value})}/>
@@ -92,6 +87,10 @@ export default function Addassistantprofessor() {
                 </Form.Group> 
                 <Button size="large" primary>Activate Account</Button>
                 </Form>
+          
+              </Grid.Column>
+              </Grid.Row>
+          </Grid>
                 
         </div>
     )

@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
-import { Header ,Form, Button} from 'semantic-ui-react'
+import { Header ,Form, Button,Grid, GridColumn} from 'semantic-ui-react'
 import './Formlogin.css';
 import db, { register } from '../../firebase';
 import * as ROUTES from './../../routes';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default function Addadmin() {
     let history = useHistory();
@@ -39,9 +40,16 @@ export default function Addadmin() {
     }
     return (
         <div className="Formlogin__container">
-            <Header as="h1">Add Admin Account</Header>
-             
-            <Form  onSubmit={handleSubmit}>
+            <Grid >
+                <Grid.Row >
+                    <Link to={ROUTES.ADMINPANEL}><Button size="large"  floated="left" as="div" primary icon="arrow left">Back</Button></Link>
+                </Grid.Row>
+                <Grid.Row centered>
+                <Header as="h1">Add Admin Account</Header>
+                </Grid.Row>
+                <Grid.Row  >
+                <Grid.Column>
+                <Form  onSubmit={handleSubmit} style={{maxWidth:"600px",display:"relative",margin:"0 auto"}}>
                 <Form.Group widths='equal'>
                 <Form.Input  placeholder='Admin name' onChange={(e) => setAdmindata({...admindata,name: e.target.value})}/>
                 <Form.Input  placeholder='E-mail' onChange={(e) => setAdmindata({...admindata,email: e.target.value})}/>
@@ -55,6 +63,10 @@ export default function Addadmin() {
                 </Form.Group>
                 <Button size="massive" primary>Activate Account</Button>
                 </Form>
+                </Grid.Column>
+                </Grid.Row>
+                
+            </Grid>
             
         </div>
     )
